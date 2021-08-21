@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 how about you
+=======
+hello
+>>>>>>> feature

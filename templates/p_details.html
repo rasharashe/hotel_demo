@@ -1,0 +1,59 @@
+
+{% extends 'headerad.html' %}
+
+    {% block content %}
+    <br><br>
+<head>
+<style>
+#customrs {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customrs td, #customes th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#customrs tr:nth-child(even){background-color: #f2f2f2;}
+
+#customrs tr:hover {background-color: #ddd;}
+
+#customrs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  align-content: center;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<h2>Payment Details</h2>
+	<br><br>
+<table id="customrs">
+  <tr>
+    <th>Name</th>
+    <th>Room No</th>
+    <th>Rate</th>
+    <th>Status</th>
+  </tr>
+  {% for x in y %}
+  <tr>
+    <td><b>{{x.rg1.name}}</b></td>
+    <td>{{x.rm1.r_num}}</td>
+    <td><b>${{x.bk1.total}}</b></td>
+    <td><a href="/avb/?a={{x.id}}"><button class="btn btn-success" >Vaccate</button ></a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<br><br>
+
+{% endblock %}

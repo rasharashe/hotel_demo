@@ -1,0 +1,74 @@
+
+{% extends 'headerad.html' %}
+
+    {% block content %}
+    <br><br>
+<section class="ftco-section ">
+      <div class="container " >
+        <div class="row justify-content-center">
+          <div class="col-xl-7 ftco-animate">
+						<form action="/add/" class="billing-form" method="post" enctype="multipart/form-data">{% csrf_token %}
+							<h2 class="mb-4 billing-heading">Add/Update Room</h2><br>	
+							<h5 style="color: red">{{msg}}</h5>	
+							<br>
+
+		          	<div class="row align-items-end">
+	          		<div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="firstname">Room Number</label>
+	                  <input type="text" required="" class="form-control" style="width: 35%" placeholder="" name="number" required="">
+	                </div>
+	              </div>    
+		  
+		            
+		            <div class="col-md-12">
+	                <div class="form-group" class="icon">
+	                   	<label for="emailaddress">Bed Type</label>
+	                   	<br>
+	                	<select for="bedtype" style="width: 35%" class="form-control" name="bedtype" required="" >
+	                  <option selected="" disabled="" hidden="">Select</option>
+	                  <option>Single</option>
+	                  <option>Double</option>
+	                  <option>Full</option>
+	              </select>
+	                </div>
+	              </div>
+	              <div class="col-md-12">
+	                <div class="form-group">
+	                   	<label for="emailaddress">A/C</label>
+	                   	<br>
+	                	<select for="bedtype" class="form-control" style="width: 35%" name="ac" required="">
+	                  <option selected="" disabled="" hidden="">Select</option>
+	                  <option>A/C</option>
+	                  <option>Non A/C</option>
+	              </select>
+	                </div>
+                </div>
+                 <div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="password">Rate</label>
+	                  <input type="number" class="form-control" placeholder="" style="width: 35%" name="rate" required="" required="">
+	                </div>
+                </div>
+                <div class="col-md-4">
+	                <div class="form-group"> 
+	                	<label for="password">Description</label>
+
+					<textarea required="" class="form-control" name="des" style="width: 111%" ></textarea>
+				</div></div>
+                 <div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="password">Upload Image</label>
+	          	        <input type="file" class="form-control" placeholder="" name="img" style="width: 35%" required="">
+
+	                </div>
+                </div> 
+                 <div class="col-md-12">
+	                <div class="form-group">
+	                	<input type="submit" value="Submit" class="btn btn-success">
+	               </div>
+	           </div></div>
+	          </form><!-- END -->
+					</div>
+	</form></div></div></div></section>
+{% endblock %}

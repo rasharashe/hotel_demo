@@ -1,0 +1,73 @@
+{% extends 'headerus.html' %}
+
+    {% block content %}
+    <br>
+<section class="ftco-section ">
+      <div class="container " >
+        <div class="row justify-content-center">
+          <div class="col-xl-7 ftco-animate">
+						<form action="/booked/" class="billing-form" method="post">{% csrf_token %}
+							<h2 class="mb-4 billing-heading">Book</h2>	
+							<h5 style="color: red">{{msg}}</h5>	
+							<br>
+					{% for x in b %}
+		          	<div class="row align-items-end">
+	          		<div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="firstname">Room Number</label>
+	                  <input type="text" required="" class="form-control" style="width: 35%" placeholder="" name="num" required="" readonly="" value="{{x.r_num}}">
+	                </div>
+	              </div>     
+		  
+		            
+		            <div class="col-md-3">
+	                <div class="form-group" class="icon">
+	                   	<label for="emailaddress">Adult</label>
+	                   	<br>
+	                	<select for="bedtype" style="width: 40%" class="form-control" name="people" required="" >
+	                  <option selected="" disabled="" hidden="">Select</option>
+	                  <option>1</option>
+	                  <option>2</option>
+	                  <option>3</option>
+	                  <option>4</option>
+	              </select>
+	                </div>
+	              </div>
+	              <div class="col-md-3">
+	                <div class="form-group">
+	                   	<label for="emailaddress">Child</label>
+	                   	<br>
+	                	<select for="bedtype" class="form-control" style="width: 40%" name="child">
+	                  <option selected="" disabled="" hidden="">Select</option>
+	                  <option>0</option>
+	                  <option>1</option>
+	                  <option>2</option>
+	                  <option>3</option>
+	                  <option>4</option>
+	                  <option>5</option>
+	              </select>
+	                </div>
+                </div>
+                 <div class="col-md-12">
+	                <div class="form-group"> 
+	                	<label for="password">Check In</label>
+	                  <input type="date" class="form-control" placeholder="" style="width: 35%" name="indate" required="" required="">
+	                </div>
+                </div>
+                 <div class="col-md-12">
+	                <div class="form-group">
+	                		<label for="password">Check Out</label>
+	                  <input type="date" class="form-control" placeholder="" style="width: 35%" name="outdate" required="" required="">
+	                </div>
+                </div> 
+                 <div class="col-md-12">
+	                <div class="form-group">
+	                	<input type="submit" value="Submit" class="btn btn-success">
+	               </div>
+	           </div></div>
+	           {% endfor %}
+	          </form><!-- END -->
+					</div>
+	</form></div></div></div></section>
+
+   {% endblock %}

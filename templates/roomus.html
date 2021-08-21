@@ -1,0 +1,67 @@
+{% extends 'headerus.html' %}
+
+    {% block content %}
+<!--room start here-->
+<div class="rooms">
+	<div class="container">
+		<div class="rooms-main">
+			 <div class="room-head">
+			 	<h3>Luxury Rooms</h3>
+			 </div>
+			 {% for x in b %}
+			 <div class="rooms-top">
+			    <div class="rooms-left wow slideInLeft" data-wow-delay="0.3s">
+				 	<div class="col-md-4 rooms-text">
+				 		<h2><a href="login.html">{{x.r_num}}</a></h2>
+				 		<p>{{x.des}}</p>
+				 	    <div class="room-btn">
+				 	      <a href="login.html" class="hvr-push">Read More</a>	
+				 	    </div>		 	    
+				 	</div>
+				 	<div class="col-md-8 rooms-img">
+				 		<div class="luxury-block">
+				 		 <a href="/book/?a={{x.id}}"> <img src="{{x.r_pic.url}}" alt="" class="img-responsive"></a>		
+						</div>
+				 	</div>				 
+				  <div class="clearfix"> </div>
+			    </div>
+			 </div>
+			 {% endfor %}
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--gallery start here-->
+<div class="gallery" id="gallery">
+	<div class="container">
+	  <div class="gallery-main wow zoomIn" data-wow-delay="0.3s">
+	  	<div class="gallery-top">
+	  		<h1>Other Rooms</h1>
+	  	</div>
+	  	
+		<div class="gallery-bott">
+			{% for x in a %}
+			<div class="col-md-12">
+				 <a href="/book/?a={{x.id}}">
+							<img class="img-responsive" src="{{x.r_pic.url}}" alt="">
+					</a>
+					</div>{% endfor %}
+			     <div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--gallery end here-->
+<script src="/static/js/jquery.chocolat.js"></script>
+		<link rel="stylesheet" href="/static/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
+		<!--light-box-files -->
+		<script type="text/javascript" charset="utf-8">
+		$(function() {
+			$('.gallery-grid a').Chocolat();
+		});
+		</script>
+
+<!--room end here-->
+<!--footer start here-->
+{% endblock %}

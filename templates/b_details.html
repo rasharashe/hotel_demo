@@ -1,0 +1,87 @@
+
+{% extends 'headerad.html' %}
+
+    {% block content %}
+    <br><br>
+<head>
+<style>
+#customrs {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customrs td, #customes th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#customrs tr:nth-child(even){background-color: #f2f2f2;}
+
+#customrs tr:hover {background-color: #ddd;}
+
+#customrs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  align-content: center;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<h2>Pending Request</h2>
+	<br><br>
+<table id="customrs">
+  <tr>
+    <th>Name</th>
+    <th>Room No</th>
+    <th>Date In</th>
+    <th>Date Out</th>
+    <th>Rate</th>
+    <th>Approve</th>
+  </tr>
+  {% for x in y %}
+  <tr>
+    <td><b>{{x.rg1.name}}</b></td>
+    <td>{{x.rm1.r_num}}</td>
+    <td>{{x.date_in}}</td>
+    <td>{{x.date_out}}</td>
+    <td><b>${{x.total}}</b></td>
+    <td><a href="/approve/?a={{x.id}}"><button class="btn btn-success">Approve</button></a></td>
+
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<br><br>
+<div class="container">
+	  <h2>Booking Details</h2>
+	  <br><br>
+<table id="customrs">
+  <tr>
+    <th>Name</th>
+    <th>Room No</th>
+    <th>Status</th>
+    <th>Cancel</th>
+  </tr>
+  {% for x in c %}
+  <tr>
+    <td><b>{{x.rg1.name}}</b></td>
+    <td>{{x.rm1.r_num}}</td>
+    <td>{{x.status}}</td>
+    <td><a href="/cancel/?b={{x.id}}"><button class="btn-success btn">Cancel</button></a></td>
+
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<br><br>
+{% endblock %}

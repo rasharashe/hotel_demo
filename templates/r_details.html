@@ -1,0 +1,64 @@
+{% extends 'headerad.html' %}
+
+    {% block content %}
+    <br><br>
+<head>
+<style>
+#customrs {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customrs td, #customes th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+
+#customrs tr:nth-child(even){background-color: #f2f2f2;}
+
+#customrs tr:hover {background-color: #ddd;}
+
+#customrs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  align-content: center;
+  text-align: center;
+}  
+
+}
+</style>
+</head>
+<div class="container contact-main">
+<table id="customrs">
+  <tr>
+    <th>Room No</th>
+    <th>Type</th>
+    <th>A/C</th>
+    <th>Rate</th>
+    <th>Image</th>
+    <th>Update</th>
+    <th>Remove</th>
+  </tr>
+  {% for x in c %}
+  <tr>
+    <td><b>{{x.r_num}}</b></td>
+    <td>{{x.b_type}}</td>
+    <td>{{x.ac}}</td>
+    <td>${{x.price}}</td>
+    <td><img src="{{x.r_pic.url}}" class=" img-fluid " style="width: 90px;height: 50px;"></td>
+    <td><a href="/updateroom/?a={{x.id}}"><button type="" name="" class="btn btn-success">Update</button></a></td>
+    <td><a href="/remove/?a={{x.id}}"><button type="" name="" class="btn btn-success">Remove</button></a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<br><br>
+{% endblock %}

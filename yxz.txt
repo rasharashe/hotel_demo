@@ -1,2 +1,10 @@
+<<<<<<< HEAD
 hello
 how are you
+=======
+<<<<<<< HEAD
+how about you
+=======
+hello
+>>>>>>> feature
+>>>>>>> master
